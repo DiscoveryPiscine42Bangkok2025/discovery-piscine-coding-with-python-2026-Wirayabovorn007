@@ -153,22 +153,18 @@ def is_k_exist(board):
 	return False
 
 def has_err(board):
-	if not is_k_exist(board): #The board has no kingggg
-		return True
-
-	for i in board: # Rectangle check
-		if len(i) != len(board[0]):
+	for row in board: #check if board rectangle
+		if len(row) != len(board):
 			return True
-	
+
 	k_count = 0
-	for row in board:
-		if k_count > 1: return True # Has more than 1 K
+	for row in board: #Must have only one K
 		for col in row:
-			if col not in ["P", "B", "R", "Q", "K", "."]: return True # Contain invalid char
-			if col == "K": k_count+=1
-	
+			if col == "K": 
+				k_count += 1
 
-
+	if k_count != 1: 
+		return True
 	return False
 
 def in_check(b):
