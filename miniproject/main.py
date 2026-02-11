@@ -2,18 +2,19 @@ import checkmate as helper
 
 
 def checkmate(board):
-	if (helper.in_check(board) == True):
+	status = helper.in_check(board)
+	if (status == True):
 		print("Success")
-	elif (helper.in_check(board) == -1):
+	elif (status == -1):
 		print("Error")
 	else:
 		print("Fail")
 
 def main():
 	board = """\
-R...
 ...K
-PB..
+....
+....
 ....\
 """
 	checkmate(board)
